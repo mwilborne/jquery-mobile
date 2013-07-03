@@ -61,9 +61,7 @@ define( [ "jquery", "../../jquery.mobile.core", "../../jquery.mobile.widget", ".
 
 			this.clearButton().appendTo( this.widget() );
 
-			if ( !this.isSearch ) {
-				this.widget().addClass( "ui-input-has-clear" );
-			}
+			this.widget().addClass( "ui-input-has-clear" );
 
 		},
 
