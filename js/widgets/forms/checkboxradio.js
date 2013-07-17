@@ -12,7 +12,6 @@
 define( [ "jquery",
 	"../../jquery.mobile.core",
 	"../../jquery.mobile.widget",
-	"../optionDemultiplexer",
 	"./reset" ], function( jQuery ) {
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
