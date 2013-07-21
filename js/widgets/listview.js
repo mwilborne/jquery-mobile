@@ -198,11 +198,6 @@ $.widget( "mobile.listview", $.extend( {
 	}
 }, $.mobile.behaviors.addFirstLastClasses ) );
 
-$.mobile.listview.initSelector = ":jqmData(role='listview')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.listview" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

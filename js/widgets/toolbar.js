@@ -112,9 +112,6 @@ define( [ "jquery", "../jquery.mobile.widget", "../jquery.mobile.core", "../jque
 				});
 		}
 	});
-	$.mobile.toolbar.initSelector = ":jqmData(role='footer'), :jqmData(role='header')";
-
-	$.mobile._enhancer.add( "mobile.toolbar" );
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

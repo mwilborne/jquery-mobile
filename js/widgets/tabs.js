@@ -8,10 +8,6 @@ define( [ "jquery", "../jquery.mobile.widget", "../jquery.ui.core","./jquery.ui.
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
 
-	$.ui.tabs.initSelector = ":jqmData(role='tabs'), :jqmData(content='tabs')";
-
-	$.mobile._enhancer.add( "ui.tabs" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

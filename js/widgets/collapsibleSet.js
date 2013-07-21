@@ -82,11 +82,6 @@ $.widget( "mobile.collapsibleset", $.extend( {
 	}
 }, $.mobile.behaviors.addFirstLastClasses ) );
 
-$.mobile.collapsibleset.initSelector = ":jqmData(role='collapsible-set')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.collapsibleset" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

@@ -63,11 +63,6 @@ $.widget( "mobile.table", {
 	}
 });
 
-$.mobile.table.initSelector = ":jqmData(role='table')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.table" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

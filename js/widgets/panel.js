@@ -465,11 +465,6 @@ $.widget( "mobile.panel", {
 	}
 });
 
-$.mobile.panel.initSelector = ":jqmData(role='panel')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.panel" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

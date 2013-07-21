@@ -66,11 +66,6 @@ $.widget( "mobile.navbar", {
 	}
 });
 
-$.mobile.navbar.initSelector = ":jqmData(role='navbar')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.navbar" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

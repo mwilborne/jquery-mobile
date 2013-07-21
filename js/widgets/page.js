@@ -15,8 +15,7 @@ $.widget = (function( orig ) {
 		var constructor = orig.apply( this, arguments ),
 			name = constructor.prototype.widgetName;
  
-		constructor.initSelector = ":jqmData(role='" + name + "')" +
-			(constructor.initSelector ? "," + constructor.initSelector : "");
+		constructor.initSelector = ( constructor.initSelector ? constructor.initSelector : ":jqmData(role='" + name + "')" );
  
 		$.mobile.widgets[ name ] = constructor;
  

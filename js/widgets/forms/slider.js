@@ -556,14 +556,11 @@ $.widget( "mobile.slider", $.extend( {
 		value = !!value;
 		this.element.prop( "disabled", value );
 		this.slider.toggleClass( "ui-disabled", value ).attr( "aria-disabled", value );
-	}
+	},
+
+	initSelector: "input[type='range'], :jqmData(type='range'), :jqmData(role='slider')"
 
 }, $.mobile.behaviors.formReset, $.mobile.behaviors.optionDemultiplexer ) );
-
-$.mobile.slider.initSelector = "input[type='range'], :jqmData(type='range'), :jqmData(role='slider')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.slider" );
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

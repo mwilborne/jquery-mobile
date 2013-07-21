@@ -280,13 +280,11 @@ $.widget( "mobile.selectmenu", $.extend( {
 	enable: function() {
 		this._setDisabled( false );
 		this.button.removeClass( "ui-state-disabled" );
-	}
+	},
+
+	initSelector: "select:not( :jqmData(role='slider') )"
 }, $.mobile.behaviors.formReset ) );
 
-$.mobile.selectmenu.initSelector = "select:not( :jqmData(role='slider') )";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.selectmenu" );
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

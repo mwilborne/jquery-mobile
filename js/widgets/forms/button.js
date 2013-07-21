@@ -144,13 +144,10 @@ $.widget( "mobile.button", {
 		}
 
 		this._setOption( "disabled", $el.prop( "disabled" ) );
-	}
+	},
+
+	initSelector: "button, [type='button'], [type='submit'], [type='reset']"
 });
-
-$.mobile.button.initSelector = "button, [type='button'], [type='submit'], [type='reset']";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.button" );
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

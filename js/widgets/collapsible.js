@@ -174,11 +174,6 @@ $.widget( "mobile.collapsible", {
 	}
 });
 
-$.mobile.collapsible.initSelector = ":jqmData(role='collapsible')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.collapsible", { dependencies: [ "mobile.page","mobile.toolbar" ] });
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

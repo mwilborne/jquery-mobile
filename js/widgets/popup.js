@@ -931,11 +931,6 @@ $.mobile.document.bind( "pagebeforechange", function( evt, data ) {
 	}
 });
 
-$.mobile.popup.initSelector = ":jqmData(role='popup')";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.popup" );
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

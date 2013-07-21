@@ -165,13 +165,11 @@ $.widget( "mobile.textinput", {
 			this.element.unwrap();
 		}
 		this.element.removeClass( "ui-input-text " + this.themeclass + " ui-corner-all ui-mini ui-disabled" );
-	}
+	},
+
+	initSelector: "input[type='text'], input[type='search'], :jqmData(type='search'), input[type='number'], :jqmData(type='number'), input[type='password'], input[type='email'], input[type='url'], input[type='tel'], textarea, input[type='time'], input[type='date'], input[type='month'], input[type='week'], input[type='datetime'], input[type='datetime-local'], input[type='color'], input:not([type]), input[type='file']"
+
 });
-
-$.mobile.textinput.initSelector = "input[type='text'], input[type='search'], :jqmData(type='search'), input[type='number'], :jqmData(type='number'), input[type='password'], input[type='email'], input[type='url'], input[type='tel'], textarea, input[type='time'], input[type='date'], input[type='month'], input[type='week'], input[type='datetime'], input[type='datetime-local'], input[type='color'], input:not([type]), input[type='file']";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.textinput" );
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

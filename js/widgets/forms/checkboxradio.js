@@ -245,14 +245,11 @@ $.widget( "mobile.checkboxradio", $.extend( {
 			this.label.removeClass( "ui-btn-icon-" + this.options.iconpos );
 		}
 		this._super( options );
-	}
+	},
+
+	initSelector: "input[type='checkbox'],input[type='radio']"
 
 }, $.mobile.behaviors.formReset ) );
-
-$.mobile.checkboxradio.initSelector = "input[type='checkbox'],input[type='radio']";
-
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.checkboxradio" );
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
