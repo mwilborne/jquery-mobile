@@ -75,7 +75,8 @@ $.widget( "mobile.page", {
 		});
 
 		// enhance the page
-		$.mobile._enhancer.enhance( this.element[ 0 ] );
+		//$.mobile._enhancer.enhance( this.element[ 0 ] );
+		$.mobile.enhanceWithin( this.element );
 	},
 
 	bindRemove: function( callback ) {
@@ -113,7 +114,7 @@ $.widget( "mobile.page", {
 	},
 
 	_handlePageBeforeShow: function(/* e */) {
-		this.element.parent().content( "option", "theme", theme );
+		this.element.parent().content( "option", "theme", this.options.theme );
 	},
 	//deprcated in 1.4 remove in 1.5
 	removeContainerBackground: function() {

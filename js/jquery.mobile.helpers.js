@@ -75,6 +75,17 @@ define( [ "jquery", "./jquery.mobile.ns", "./jquery.ui.core", "json!../package.j
 			return this.haveParents( $set, "ajax" );
 		},
 
+		enhanceWithin: function( element ) {
+			$.each( $.mobile.widgets, function( name, constructor ) {
+				$widgetElements = $.mobile.enhanceable( $( element ).find( constructor.initSelector ) );
+				if ( $widgetElements.length ) {
+					$widgetElements = $widgetElements.not( $.mobile.keepNativeSelector );
+				}
+				console.log( constructor.prototype.widgetName )
+				$widgetElements[ constructor.prototype.widgetName ]();
+			});
+		},
+
 		haveParents: function( $set, attr ) {
 			if ( !$.mobile.ignoreContentEnabled ) {
 				return $set;

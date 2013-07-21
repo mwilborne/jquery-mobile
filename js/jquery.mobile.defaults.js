@@ -25,7 +25,7 @@ define( [ "jquery", "./jquery.mobile.ns", "json!../package.json" ], function( jQ
 		activePageClass: "ui-page-active",
 
 		//default selector to keep native
-		keepNativeSelector: ":jqmData(role='none'), :jqmData(role='nojs')"
+		keepNativeSelector: ":jqmData(role='none'), :jqmData(role='nojs')",
 
 		// Class used for "active" button state, from CSS framework
 		activeBtnClass: "ui-btn-active",
