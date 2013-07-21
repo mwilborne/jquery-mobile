@@ -37,26 +37,6 @@ $.extend( $.Widget.prototype, {
 
 	disable: function() {
 		return this._setOptions({ disabled: true });
-	},
-
-	enhanceWithin: function( target, useKeepNative ) {
-		this.enhance( $( $[ this.namespace ][ this.widgetName ].initSelector, $( target ) ), useKeepNative );
-	},
-
-	enhance: function( targets ) {
-		var page, keepNative, $widgetElements = $( targets );
-
-		// if ignoreContentEnabled is set to true the framework should
-		// only enhance the selected elements when they do NOT have a
-		// parent with the data-namespace-ignore attribute
-		$widgetElements = $.mobile.enhanceable( $widgetElements );
-
-		if ( $widgetElements.length ) {
-
-			$widgetElements = $widgetElements.not( $.mobile.keepNativeSelector );
-		}
-
-		$widgetElements[ this.widgetName ]();
 	}
 });
 //TODO: Remove in 1.5 for backcompat only
