@@ -18,7 +18,13 @@ define( [
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
 
+
 	$.widget( "mobile.content", $.mobile.widget, {
+
+		options: {
+			theme: null
+		},
+
 		_create: function() {
 			var $window = $( window );
 
@@ -48,6 +54,16 @@ define( [
 			$window.one( "navigate", $.proxy(function() {
 				this.setLastScrollEnabled = true;
 			}, this));
+		},
+
+		_setOptions: function( options ) {
+			if( options.theme !== undefined ){
+				this.element.removeClass( "ui-overlay-" + this.options.theme )
+				if( options.theme != null ){
+					this.element.addClass( "ui-overlay-" + options.theme );
+				}
+			}
+			this._super( options );
 		},
 
 		_disableRecordScroll: function() {

@@ -34,7 +34,7 @@ $.widget( "mobile.page", {
 		theme: "a",
 		domCache: false,
 		//deprcated in 1.4 remove in 1.5
-		keepNativeDefault: ":jqmData(role='none'), :jqmData(role='nojs')",
+		keepNativeDefault: $.mobile.keepNativeSelector,
 		//deprcated in 1.4 remove in 1.5
 		contentTheme: null
 	},
@@ -52,10 +52,6 @@ $.widget( "mobile.page", {
 		// if false is returned by the callbacks do not create the page
 		if ( this._trigger( "beforecreate" ) === false ) {
 			return false;
-		}
-
-		if ( this.options.role ) {
-			this.element.attr( "data-" + $.mobile.ns + "role", this.options.role );
 		}
 
 		this.element
@@ -103,56 +99,35 @@ $.widget( "mobile.page", {
 		}
 	},
 
-	_setOptions: function( o ) {
+	_setOptions: function( options ) {
 		if( o.theme !== undefined ) {
-			this.element.removeClass( "ui-body-" + this.options.theme ).addClass( "ui-body-" + o.theme );
+			this.element.removeClass( "ui-body-" + this.options.theme ).addClass( "ui-body-" + options.theme );
 		}
 
 		if( o.contentTheme !== undefined ) {
 			this.element.find( "[data-" + $.mobile.ns + "='content']" ).removeClass( "ui-body-" + this.options.contentTheme )
-				.addClass( "ui-body-" + o.contentTheme );
+				.addClass( "ui-body-" + options.contentTheme );
 		}
+
+		this._super( options );
 	},
 
 	_handlePageBeforeShow: function(/* e */) {
-		this.setContainerBackground();
+		this.element.parent().content( "option", "theme", theme );
 	},
 	//deprcated in 1.4 remove in 1.5
 	removeContainerBackground: function() {
-		var classes = ( $.mobile.pageContainer.attr( "class" ) || "" ).split( " " ),
-			overlayTheme = null,
-			matches;
-
-		while ( classes.length > 0 ) {
-			overlayTheme = classes.pop();
-			matches = ( new RegExp( "^ui-overlay-([a-z])$" ) ).exec( overlayTheme );
-			if ( matches && matches.length > 1 ) {
-				overlayTheme = matches[ 1 ];
-				break;
-			} else {
-				overlayTheme = null;
-			}
-		}
-
-		$.mobile.pageContainer.removeClass( "ui-overlay-" + overlayTheme );
+		this.element.parent().content( "option", "theme", null );
 	},
 	//deprcated in 1.4 remove in 1.5
 	// set the page container background to the page theme
 	setContainerBackground: function( theme ) {
-		if ( this.options.theme ) {
-			$.mobile.pageContainer.addClass( "ui-overlay-" + ( theme || this.options.theme ) );
-		}
+		theme = theme || this.options.theme;
+		this.element.parent().content( "option", "theme", theme );
 	},
 	//deprcated in 1.4 remove in 1.5
 	keepNativeSelector: function() {
-		var options = this.options,
-			keepNativeDefined = options.keepNative && $.trim( options.keepNative );
-
-		if ( keepNativeDefined && options.keepNative !== options.keepNativeDefault ) {
-			return [options.keepNative, options.keepNativeDefault].join( ", " );
-		}
-
-		return options.keepNativeDefault;
+		return $.mobile.keepNativeSelector;
 	}
 });
 })( jQuery );
