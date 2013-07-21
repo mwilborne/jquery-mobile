@@ -6,12 +6,36 @@
 define( [ "jquery", "../jquery.mobile.widget", "../jquery.mobile.core", "../jquery.mobile.registry" ], function( jQuery ) {
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
+$.mobile.widgets = {};
+
+originalWidget = $.widget;
+
+$.widget = (function( orig ) {
+	return function() {
+		var constructor = orig.apply( this, arguments ),
+			name = constructor.prototype.widgetName;
+ 
+		constructor.initSelector = ":jqmData(role='" + name + "')" +
+			(constructor.initSelector ? "," + constructor.initSelector : "");
+ 
+		$.mobile.widgets[ name ] = constructor;
+ 
+		return constructor;
+	};
+})( $.widget );
+
+$.extend( $.widget, {
+	extend: originalWidget.extend,
+	bridge: originalWidget.bridge
+})
 
 $.widget( "mobile.page", {
 	options: {
 		theme: "a",
 		domCache: false,
+		//deprcated in 1.4 remove in 1.5
 		keepNativeDefault: ":jqmData(role='none'), :jqmData(role='nojs')",
+		//deprcated in 1.4 remove in 1.5
 		contentTheme: null
 	},
 
@@ -93,7 +117,7 @@ $.widget( "mobile.page", {
 	_handlePageBeforeShow: function(/* e */) {
 		this.setContainerBackground();
 	},
-
+	//deprcated in 1.4 remove in 1.5
 	removeContainerBackground: function() {
 		var classes = ( $.mobile.pageContainer.attr( "class" ) || "" ).split( " " ),
 			overlayTheme = null,
@@ -112,14 +136,14 @@ $.widget( "mobile.page", {
 
 		$.mobile.pageContainer.removeClass( "ui-overlay-" + overlayTheme );
 	},
-
+	//deprcated in 1.4 remove in 1.5
 	// set the page container background to the page theme
 	setContainerBackground: function( theme ) {
 		if ( this.options.theme ) {
 			$.mobile.pageContainer.addClass( "ui-overlay-" + ( theme || this.options.theme ) );
 		}
 	},
-
+	//deprcated in 1.4 remove in 1.5
 	keepNativeSelector: function() {
 		var options = this.options,
 			keepNativeDefined = options.keepNative && $.trim( options.keepNative );
