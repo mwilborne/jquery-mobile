@@ -15,7 +15,7 @@ $.widget = (function( orig ) {
 		var constructor = orig.apply( this, arguments ),
 			name = constructor.prototype.widgetName;
  
-		constructor.initSelector = ( constructor.initSelector ? constructor.initSelector : ":jqmData(role='" + name + "')" );
+		constructor.initSelector = ( constructor.prototype.initSelector ? constructor.prototype.initSelector : ":jqmData(role='" + name + "')" );
  
 		$.mobile.widgets[ name ] = constructor;
  
@@ -100,11 +100,11 @@ $.widget( "mobile.page", {
 	},
 
 	_setOptions: function( options ) {
-		if( o.theme !== undefined ) {
+		if( options.theme !== undefined ) {
 			this.element.removeClass( "ui-body-" + this.options.theme ).addClass( "ui-body-" + options.theme );
 		}
 
-		if( o.contentTheme !== undefined ) {
+		if( options.contentTheme !== undefined ) {
 			this.element.find( "[data-" + $.mobile.ns + "='content']" ).removeClass( "ui-body-" + this.options.contentTheme )
 				.addClass( "ui-body-" + options.contentTheme );
 		}

@@ -243,7 +243,7 @@ $.fn.buttonMarkup.defaults = {
 // This function is only defined so that it can be called from the enhancer
 // without having to write it inline and may be moved into the enhancer in the
 // future.
-function enhanceWithButtonMarkup( idx, el ) {
+$.mobile.enhanceWithButtonMarkup = function ( idx, el ) {
 	var classes;
 
 	classes = optionsToClasses( $.extend( {},
@@ -263,12 +263,6 @@ function enhanceWithButtonMarkup( idx, el ) {
 		}).join( " " );
 	el.setAttribute( "role", "button" );
 }
-
-//links in bars, or those with data-role become buttons
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.buttonmarkup", undefined, function( target ) {
-	$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", target ).each( enhanceWithButtonMarkup );
-});
 
 })( jQuery );
 

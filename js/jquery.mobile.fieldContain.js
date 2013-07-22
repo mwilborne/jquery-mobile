@@ -14,11 +14,6 @@ $.fn.fieldcontain = function(/* options */) {
 	return this.addClass( "ui-field-contain" );
 };
 
-//auto self-init widgets
-$.mobile._enhancer.add( "mobile.fieldcontain", undefined, function( target ) {
-	$( ":jqmData(role='fieldcontain')", target ).jqmEnhanceable().fieldcontain();
-});
-
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

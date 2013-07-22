@@ -76,12 +76,15 @@ define( [ "jquery", "./jquery.mobile.ns", "./jquery.ui.core", "json!../package.j
 		},
 
 		enhanceWithin: function( element ) {
+			$.mobile.nojs( element );
+			$.mobile.links( element );
+			$.mobile.degradeInputsWithin( element );
+			$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", element ).each( $.mobile.enhanceWithButtonMarkup );
 			$.each( $.mobile.widgets, function( name, constructor ) {
 				$widgetElements = $.mobile.enhanceable( $( element ).find( constructor.initSelector ) );
 				if ( $widgetElements.length ) {
 					$widgetElements = $widgetElements.not( $.mobile.keepNativeSelector );
 				}
-				console.log( constructor.prototype.widgetName )
 				$widgetElements[ constructor.prototype.widgetName ]();
 			});
 		},

@@ -8,7 +8,7 @@ define( [ "jquery", "./widgets/page", "./jquery.mobile.registry" ], function( jQ
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
 
-$.mobile.page.prototype.options.degradeInputs = {
+$.mobile.degradeInputs = {
 	color: false,
 	date: false,
 	datetime: false,
@@ -25,25 +25,18 @@ $.mobile.page.prototype.options.degradeInputs = {
 };
 
 //auto self-init widgets
-$.mobile._enhancer.add( "mobile.degradeinputs", undefined, function( target ) {
+$.mobile.degradeInputsWithin = function( target ) {
 
-	var $target = $( target ),
-		page = $.mobile.closestPageData( $target ), options;
-
-	if ( !page ) {
-		return;
-	}
-
-	options = page.options;
+	var $target = $( target );
 
 	// degrade inputs to avoid poorly implemented native functionality
-	$target.find( "input" ).not( page.keepNativeSelector() ).each(function() {
+	$target.find( "input" ).not( $.mobile.keepNativeSelector ).each(function() {
 		var $this = $( this ),
 			type = this.getAttribute( "type" ),
-			optType = options.degradeInputs[ type ] || "text",
+			optType = $.mobile.degradeInputs[ type ] || "text",
 			html, hasType, findstr, repstr;
 
-		if ( options.degradeInputs[ type ] ) {
+		if ( $.mobile.degradeInputs[ type ] ) {
 			html = $( "<div>" ).html( $this.clone() ).html();
 			// In IE browsers, the type sometimes doesn't exist in the cloned markup, so we replace the closing tag instead
 			hasType = html.indexOf( " type=" ) > -1;
@@ -54,7 +47,7 @@ $.mobile._enhancer.add( "mobile.degradeinputs", undefined, function( target ) {
 		}
 	});
 
-});
+}
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

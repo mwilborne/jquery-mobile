@@ -25,6 +25,8 @@ define( [
 			theme: null
 		},
 
+		initSelector: "null",
+
 		_create: function() {
 			var $window = $( window );
 

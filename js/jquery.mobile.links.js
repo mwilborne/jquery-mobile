@@ -11,7 +11,7 @@ define( [ "jquery",
 //>>excludeEnd("jqmBuildExclude");
 (function( $, undefined ) {
 
-$.mobile._enhancer.add( "mobile.links", undefined, function( target ) {
+$.mobile.links =  function( target ) {
 
 	//links within content areas, tests included with page
 	$( target )
@@ -40,7 +40,7 @@ $.mobile._enhancer.add( "mobile.links", undefined, function( target ) {
 		.not( ".ui-btn, :jqmData(role='none'), :jqmData(role='nojs')" )
 		.addClass( "ui-link" );
 
-});
+}
 
 })( jQuery );
 

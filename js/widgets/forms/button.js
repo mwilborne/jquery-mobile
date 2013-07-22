@@ -22,6 +22,7 @@ $.widget( "mobile.button", {
 	},
 
 	_create: function() {
+		console.log(this.element)
 		var $button,
 			$el = this.element,
 			isInput = $el[ 0 ].tagName === "INPUT",
@@ -29,7 +30,7 @@ $.widget( "mobile.button", {
 
 		if ( isInput ) {
 			classes += " ui-input-btn";
-
+			console.log("input")
 			// TODO: data-class and data-id options. See https://github.com/jquery/jquery-mobile/issues/3577
 			if ( !!~$el[ 0 ].className.indexOf( "ui-btn-left" ) ) {
 				classes += " ui-btn-left";

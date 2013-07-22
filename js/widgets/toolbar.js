@@ -84,7 +84,7 @@ define( [ "jquery", "../jquery.mobile.widget", "../jquery.mobile.core", "../jque
 		// Deprecated in 1.4. As from 1.5 data-role="button" has to be present in the markup.
 		_btnMarkup: function() {
 			this.element.children( "a" ).attr( "data-" + $.mobile.ns + "role", "button" );
-			this.element.trigger( "create" );
+			$.mobile.enhanceWithin( this.element );
 		},
 		_addHeaderButtonClasses: function() {
 			var $headeranchors = this.element.children( "a, button" );
@@ -110,7 +110,9 @@ define( [ "jquery", "../jquery.mobile.widget", "../jquery.mobile.core", "../jque
 					"role": "heading",
 					"aria-level": "1"
 				});
-		}
+		},
+
+		initSelector: ":jqmData(role='footer'), :jqmData(role='header')"
 	});
 
 })( jQuery );
