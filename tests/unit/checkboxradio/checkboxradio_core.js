@@ -71,7 +71,7 @@
 		ok( $("#enhancetest").trigger("create").find(".ui-checkbox").length, "enhancements applied" );
 	});
 
-	$.mobile.page.prototype.options.keepNative = "input.should-be-native";
+	$.mobile.keepNativeSelector = "input.should-be-native";
 
 	// not testing the positive case here since's it's obviously tested elsewhere
 	test( "checkboxradio elements in the keepNative set shouldn't be enhanced", function() {

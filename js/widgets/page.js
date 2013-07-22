@@ -27,7 +27,10 @@ $.extend( $.widget, {
 	extend: originalWidget.extend,
 	bridge: originalWidget.bridge
 });
-
+//for backcompat remove in 1.5
+$.mobile.document.on( "create", function( event ){
+	$.mobile.enhanceWithin( event.target );
+});
 $.widget( "mobile.page", {
 	options: {
 		theme: "a",
@@ -130,6 +133,8 @@ $.widget( "mobile.page", {
 		return $.mobile.keepNativeSelector;
 	}
 });
+//for backcompat remove in 1.5
+$.mobile.page.prototype.options.keepNative = $.mobile.keepNativeSelector;
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

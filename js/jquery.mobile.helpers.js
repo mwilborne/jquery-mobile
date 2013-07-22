@@ -79,13 +79,21 @@ define( [ "jquery", "./jquery.mobile.ns", "./jquery.ui.core", "json!../package.j
 			var widgetElements;
 
 			//Add no js class to elements
-			$.mobile.nojs( element );
+			if( $.mobile.nojs ) {
+				$.mobile.nojs( element );
+			}
 			//bind links for ajax nav
-			$.mobile.links( element );
-			//degrade inputs ofr styleing
-			$.mobile.degradeInputsWithin( element );
+			if( $.mobile.links ) {
+				$.mobile.links( element );
+			}
+			//degrade inputs for styleing
+			if( $.mobile.degradeInputsWithin ){
+				$.mobile.degradeInputsWithin( element );
+			}
 			//run buttonmarkup
-			$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", element ).each( $.mobile.enhanceWithButtonMarkup );
+			if( $.mobile.enhanceWithButtonMarkup ){
+				$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", element ).each( $.mobile.enhanceWithButtonMarkup );
+			}
 			//enhance widgets
 			$.each( $.mobile.widgets, function( name, constructor ) {
 				//filter elements that should not be enhanced based on parents
