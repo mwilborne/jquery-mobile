@@ -9,7 +9,7 @@ define( [ "jquery", "jquery.mobile.registry" ], function( jQuery ) {
 
 $.mobile.nojs = function( target ) {
 	$( ":jqmData(role='nojs')", target ).addClass( "ui-nojs" );
-});
+}
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
