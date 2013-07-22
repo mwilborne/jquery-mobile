@@ -47,7 +47,7 @@ $.mobile.degradeInputsWithin = function( target ) {
 		}
 	});
 
-}
+};
 
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);

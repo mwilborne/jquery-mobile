@@ -8,7 +8,7 @@ define( [ "jquery", "../jquery.mobile.widget", "../jquery.mobile.core", "../jque
 (function( $, undefined ) {
 $.mobile.widgets = {};
 
-originalWidget = $.widget;
+var originalWidget = $.widget;
 
 $.widget = (function( orig ) {
 	return function() {
@@ -26,7 +26,7 @@ $.widget = (function( orig ) {
 $.extend( $.widget, {
 	extend: originalWidget.extend,
 	bridge: originalWidget.bridge
-})
+});
 
 $.widget( "mobile.page", {
 	options: {

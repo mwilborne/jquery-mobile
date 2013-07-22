@@ -76,16 +76,26 @@ define( [ "jquery", "./jquery.mobile.ns", "./jquery.ui.core", "json!../package.j
 		},
 
 		enhanceWithin: function( element ) {
+			var widgetElements;
+
+			//Add no js class to elements
 			$.mobile.nojs( element );
+			//bind links for ajax nav
 			$.mobile.links( element );
+			//degrade inputs ofr styleing
 			$.mobile.degradeInputsWithin( element );
+			//run buttonmarkup
 			$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", element ).each( $.mobile.enhanceWithButtonMarkup );
+			//enhance widgets
 			$.each( $.mobile.widgets, function( name, constructor ) {
-				$widgetElements = $.mobile.enhanceable( $( element ).find( constructor.initSelector ) );
-				if ( $widgetElements.length ) {
-					$widgetElements = $widgetElements.not( $.mobile.keepNativeSelector );
+				//filter elements that should not be enhanced based on parents
+				widgetElements = $.mobile.enhanceable( $( element ).find( constructor.initSelector ) );
+				//if any matching elements remain filter ones with keepNativeSelector
+				if ( widgetElements.length ) {
+					widgetElements = widgetElements.not( $.mobile.keepNativeSelector );
 				}
-				$widgetElements[ constructor.prototype.widgetName ]();
+				//enhance whatever is left
+				widgetElements[ constructor.prototype.widgetName ]();
 			});
 		},
 

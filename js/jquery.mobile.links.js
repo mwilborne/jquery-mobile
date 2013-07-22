@@ -40,7 +40,7 @@ $.mobile.links =  function( target ) {
 		.not( ".ui-btn, :jqmData(role='none'), :jqmData(role='nojs')" )
 		.addClass( "ui-link" );
 
-}
+};
 
 })( jQuery );
 

@@ -60,7 +60,7 @@ define( [
 
 		_setOptions: function( options ) {
 			if( options.theme !== undefined ){
-				this.element.removeClass( "ui-overlay-" + this.options.theme )
+				this.element.removeClass( "ui-overlay-" + this.options.theme );
 				if( options.theme != null ){
 					this.element.addClass( "ui-overlay-" + options.theme );
 				}

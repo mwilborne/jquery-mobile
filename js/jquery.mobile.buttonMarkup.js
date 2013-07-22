@@ -262,7 +262,7 @@ $.mobile.enhanceWithButtonMarkup = function ( idx, el ) {
 			return !( idx > 0 && classes[ idx - 1 ] === el );
 		}).join( " " );
 	el.setAttribute( "role", "button" );
-}
+};
 
 })( jQuery );
 
