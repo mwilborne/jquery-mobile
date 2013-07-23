@@ -21,11 +21,11 @@
 	test( "elements within an ignore container are not enhanced when ignoreContentEnabled is true ", function() {
 		$.mobile.ignoreContentEnabled = true;
 
-		$.mobile.collapsible.prototype.enhanceWithin( $("#ignored") );
+		$.mobile.enhanceWithin( "#ignored" );
 
 		ok( !$( "#ignored-collapsible" ).hasClass( "ui-collapsible" ), "ignored element doesn't have ui-collapsible" );
 
-		$.mobile.collapsible.prototype.enhanceWithin( $("#not-ignored") );
+		$.mobile.enhanceWithin( "#not-ignored" );
 
 		ok( $( "#collapsible" ).hasClass( "ui-collapsible" ), "identical unignored elements are enahanced" );
 
@@ -35,7 +35,7 @@
 	test( "siblings without ignore parent are enhanced", function() {
 		$.mobile.ignoreContentEnabled = true;
 
-		$.mobile.collapsible.prototype.enhanceWithin( $("#many-ignored") );
+		$.mobile.enhanceWithin( $("#many-ignored") );
 
 		ok( !$( "#many-ignored-collapsible" ).hasClass( "ui-collapsible" ), "sibling ignored element doesn't have ui-collapsible" );
 		ok( $( "#many-enhanced-collapsible" ).hasClass( "ui-collapsible" ), "sibling unignored elements are enahanced" );

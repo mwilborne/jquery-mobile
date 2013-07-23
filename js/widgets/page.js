@@ -38,7 +38,9 @@ $.widget( "mobile.page", {
 		//deprcated in 1.4 remove in 1.5
 		keepNativeDefault: $.mobile.keepNativeSelector,
 		//deprcated in 1.4 remove in 1.5
-		contentTheme: null
+		contentTheme: null,
+		//deprcated in 1.4 remove in 1.5
+		keepNative: false
 	},
 
 	// DEPRECATED for > 1.4
@@ -130,11 +132,17 @@ $.widget( "mobile.page", {
 	},
 	//deprcated in 1.4 remove in 1.5
 	keepNativeSelector: function() {
+		var options = this.options,
+			keepNativeDefined = options.keepNative && $.trim( options.keepNative );
+
+		if ( keepNativeDefined && options.keepNative !== $.mobile.keepNativeSelector ) {
+			return [options.keepNative, $.mobile.keepNativeSelector].join( ", " );
+		}
+
 		return $.mobile.keepNativeSelector;
 	}
 });
-//for backcompat remove in 1.5
-$.mobile.page.prototype.options.keepNative = $.mobile.keepNativeSelector;
+
 })( jQuery );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
 });

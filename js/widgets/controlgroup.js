@@ -37,6 +37,20 @@ $.widget( "mobile.controlgroup", $.extend( {
 			_initialRefresh: true
 		});
 
+		//run buttonmarkup
+		if( $.mobile.enhanceWithButtonMarkup ){
+			$( "a:jqmData(role='button'), .ui-bar > a, .ui-bar > :jqmData(role='controlgroup') > a", this.element ).each( $.mobile.enhanceWithButtonMarkup );
+		}
+		if( $.mobile.checkboxradio ){
+			this.element.find( "input[type='checkbox'],input[type='radio']" ).checkboxradio();
+		}
+		if( $.mobile.selectmenu ){
+			this.element.find( "select:not( :jqmData(role='slider') )" ).selectmenu();
+		}
+		if( $.mobile.button ){
+			this.element.find( "button, [type='button'], [type='submit'], [type='reset']" ).button();
+		}
+
 		this._setOptions( this.options );
 
 	},
@@ -94,9 +108,6 @@ $.widget( "mobile.controlgroup", $.extend( {
 	}
 }, $.mobile.behaviors.addFirstLastClasses ) );
 
-$.mobile._enhancer.add( "mobile.controlgroup", {
-	dependencies: [ "mobile.selectmenu", "mobile.button", "mobile.checkboxradio" ]
-});
 
 })(jQuery);
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
